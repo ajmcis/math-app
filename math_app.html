@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Math Web App</title>
+	<meta charset = "UTF-8"/>
+	<style type = "text/css">
+	
+	  h1
+	  {
+	     text-align: center;
+	  }
+	  
+	  h1, form.myform label, p.copy
+	  {
+	     color: green;
+	  }
+	  
+	  form.myform
+	  {
+	     border: 3px solid green;
+		 margin-top: 100px;
+		 margin-left: 140px;
+		 width: 340px;
+		 padding: 15px;
+	     background: orange;
+	  }
+	  
+	  form.myform label
+	  {
+	     font-weight: bold;
+	     font-size: 1.1em;
+	  }
+
+	  form.myform label
+	  {
+	      margin-left: 45px;
+	  }
+
+          form.myform p.equal-sign
+	  {
+	      margin-left: 5px;
+	  }
+	  
+	  form.myform input[type = "text"]
+	  {
+	     color: orange;
+	  }
+	  
+	  form.myform input[type = "button"]
+	  {
+	     margin-left: 45px;
+	  }
+	  
+	  form.myform input[type = "reset"]
+	  {
+	     margin-left: 55px;
+	  }
+	  
+	  p.copy
+	  {
+	     margin-bottom: 0.1em;
+	     text-align: right;
+		 font-size: 0.7em;
+	  }
+	</style>
+	<script type = "text/javascript">
+	  function calc()
+      {
+	     var x = document.getElementById("xvar").value;
+	     var y = document.getElementById("yvar").value;
+	     var op = document.getElementById("op");
+	     var ans = document.getElementById("ans");
+	
+	     if(x == "" || y == "")
+	       alert("Please enter a number in both boxes");
+	     else
+	     {
+	        if(op.options[op.selectedIndex].text == "+")
+		       ans.value = parseFloat(x) + parseFloat(y);
+	        else if(op.options[op.selectedIndex].text == "-")
+		         ans.value = x - y;
+	        else if(op.options[op.selectedIndex].text == "*")
+	  	         ans.value = x * y;
+	        else if(op.options[op.selectedIndex].text == "/")
+	        {	
+	  	          if (y == 0)
+		  	         alert("Undefined, can't divide zero");
+		          else 
+		          {
+			         var quot = x / y;
+			         ans.value = quot.toFixed(2);
+		          }
+			 
+	        }
+            }
+	
+      }
+  </script>
+  </head>
+  <body>
+    <h1>Math Web App</h1>
+	  <form class = "myform">
+	    <p><label for = "xvar">x:</label>
+	       <input type = "text" id = "xvar" name = "xvar"/></p>
+	    <p>
+              <select name = "op" id = "op">
+	        <option>Select an operation</option>
+		<option>+</option>
+		<option>-</option>
+		<option>*</option>
+		<option>/</option>
+	      </select>
+            </p>
+	    <p>
+              <label for = "yvar">y:</label>
+	      <input type = "text" id = "yvar" name = "yvar"/>
+            </p>
+	    <p>
+              <input type = "button" onclick = "calc();" value = "Calc"/>
+	      <input type = "reset"/>
+            </p>
+	    <p class = "equal-sign">
+              <label for = "ans">=</label>
+              <input type = "text" name = "ans" id = "ans" size = "22"/>
+           </p>
+           <p class = "copy">&copy;Alex Mack 2021</p>
+	  </form>
+  </body>
+</html>
